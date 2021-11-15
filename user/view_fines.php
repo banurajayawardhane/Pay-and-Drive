@@ -59,9 +59,9 @@ if($check_db)
           <div class="card-body">
 
           <div class="form-group">
-            <button class="btn btn-primary float-right" name="submit">Download</button>
+            <button class="btn btn-primary float-right print" name="submit">Download</button>
           </div>
-
+<div id="printdata">
           <div class="form-group">
             <div class="form-row">
               <div class="col-md-5">
@@ -170,6 +170,7 @@ if($check_db)
               </div>
             </div>
           </div>
+  </div>
 
           <input type="hidden" name="price" id="price" value="<?php echo $row ['amount']; ?>"/>
             <input type="hidden" name="item_name" id="item_name" value="<?php echo $row ['fine_number']; ?>"/>
@@ -249,6 +250,20 @@ if($check_db)
         });
    </script>
 
+
+<script src="js/jquery.min.js"></script>
+<script>
+  $('.print').click(function(){
+        var date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+        var hedding = "<center><h3 style='color:#4e73df;'>Pay and Drive</h3></center>";
+        var topic = "<h5>Fine Paper "+  date  +"</h5>";
+        var divElements = document.getElementById("printdata").innerHTML;
+        var oldPage = document.body.innerHTML;
+        document.body.innerHTML = hedding + topic + divElements;
+        window.print();
+        document.body.innerHTML = oldPage;
+  })
+</script>
 
 
 

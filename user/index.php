@@ -329,7 +329,7 @@ include '../check_date.php';
 
    ?>
   </div>
-
+  
   <script>
         $(document).ready(function(){
            $(".buy_now").on('click',function(e){
